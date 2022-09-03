@@ -1,0 +1,20 @@
+@font-face {
+
+  font-face-name: "IBM 3270";
+  font-weight: 400;
+  font-variant: normal;
+}
+
+@font-face {
+
+  font-face-name: "IBM 3270 Semi-Condensed";
+  font-weight: 300;
+  font-variant: normal;
+}
+
+@font-face {
+  
+  font-face-name: "IBM 3270 Condensed";
+  font-weight: 200;
+  font-variant: normal;
+}
