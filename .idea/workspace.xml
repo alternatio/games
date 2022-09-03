@@ -25,6 +25,7 @@
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/githubworks/games",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
     "ts.external.directory.path": "D:\\githubworks\\games\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -38,7 +39,7 @@
       <option name="presentableId" value="Default" />
       <updated>1662220688573</updated>
       <workItem from="1662220690439" duration="244000" />
-      <workItem from="1662220960266" duration="1115000" />
+      <workItem from="1662220960266" duration="9578000" />
     </task>
     <servers />
   </component>
