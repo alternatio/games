@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55ac399b-fceb-4cb9-972e-aae96a9f05ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/components/header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/games/roulette.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/Error404.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/styles/roulette.module.css" afterDir="false" />
+    <list default="true" id="55ac399b-fceb-4cb9-972e-aae96a9f05ee" name="Changes" comment="Roulette added">
+      <change afterPath="$PROJECT_DIR$/pages/components/MainContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/MainContainer.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/components/header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/games/roulette.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/games/roulette.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/Home.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Home.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/fonts/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/fonts/fonts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/roulette.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/roulette.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +64,16 @@
       <workItem from="1662281038803" duration="1698000" />
       <workItem from="1662290191818" duration="12000" />
       <workItem from="1662454570935" duration="8088000" />
-      <workItem from="1662464560245" duration="2870000" />
+      <workItem from="1662464560245" duration="12565000" />
     </task>
+    <task id="LOCAL-00001" summary="Roulette added">
+      <created>1662479848311</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662479848311</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -81,5 +89,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Roulette added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Roulette added" />
   </component>
 </project>

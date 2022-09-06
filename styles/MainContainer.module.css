@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  padding: .5rem 1rem;
+}
+
+.link {
+  color: #aaa;
+  border: none;
+  font-family: IBMPlexMono, monospace;
+  transition: .15s;
+}
+
+.link:hover {
+  color: #fff;
+}

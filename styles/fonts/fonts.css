@@ -1,11 +1,25 @@
 @font-face {
-  src: url("./styles/fonts/3270-Regular.woff") format("woff");
-  font-face-name: "IBM 3270";
+  src: url("./3270-Regular.woff");
+  font-family: "IBM 3270";
   font-variant: normal;
 }
 
 @font-face {
-  src: url("./styles/fonts/3270Condensed-Regular.woff") format("woff");
-  font-face-name: "IBM 3270 Condensed";
+  src: url("./3270Condensed-Regular.woff") format("woff");
+  font-family: "IBM 3270 Condensed";
   font-variant: normal;
+}
+
+@font-face {
+  src: url("./IBMPlexMono-Light.woff") format("woff");
+  font-family: "IBMPlexMono";
+  font-variant: normal;
+  font-weight: 200;
+}
+
+@font-face {
+  src: url("./IBMPlexMono-Regular.woff") format("woff");
+  font-family: "IBMPlexMono";
+  font-variant: normal;
+  font-weight: 300;
 }

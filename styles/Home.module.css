@@ -8,6 +8,11 @@
   width: min(100%, 50rem);
 }
 
+.verticalWrapper * {
+  font-family: "IBM 3270";
+  letter-spacing: -0.04em;
+}
+
 .header {
   font-size: 1.5rem;
   padding: 1rem 2rem;

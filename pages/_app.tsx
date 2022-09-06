@@ -1,20 +1,10 @@
-import {NextPage} from "next";
-import {ReactElement, ReactNode} from "react";
 import type { AppProps } from 'next/app'
 import '../styles/globals.css'
+import '../styles/fonts/fonts.css'
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
+const MyApp = ({ Component, pageProps }: AppProps ) => {
 
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
-
-const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
-  const getLayout = Component.getLayout ?? ((page) => page)
-
-  return getLayout(<Component {...pageProps}/>)
+  return <Component {...pageProps}/>
 }
 
 export default MyApp
