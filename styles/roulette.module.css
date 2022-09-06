@@ -1,0 +1,23 @@
+.wrapper {
+  background: #181818;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.roulette {
+  background: #222;
+  border: solid .05rem #eee;
+  border-radius: .75rem;
+  width: 10rem;
+  height: 12.5rem;
+}
+
+.controller > div {
+  color: #fff;
+}

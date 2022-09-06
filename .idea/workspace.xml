@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55ac399b-fceb-4cb9-972e-aae96a9f05ee" name="Changes" comment="" />
+    <list default="true" id="55ac399b-fceb-4cb9-972e-aae96a9f05ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/404.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/components/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/games/roulette.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/Error404.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/styles/roulette.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/Home.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Home.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/globals.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -23,9 +42,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/githubworks/games",
+    "last_opened_file_path": "C:/Users/1/Desktop/My_theme.jar",
+    "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults",
     "ts.external.directory.path": "D:\\githubworks\\games\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -39,11 +59,27 @@
       <option name="presentableId" value="Default" />
       <updated>1662220688573</updated>
       <workItem from="1662220690439" duration="244000" />
-      <workItem from="1662220960266" duration="9578000" />
+      <workItem from="1662220960266" duration="9722000" />
+      <workItem from="1662280946162" duration="57000" />
+      <workItem from="1662281038803" duration="1698000" />
+      <workItem from="1662290191818" duration="12000" />
+      <workItem from="1662454570935" duration="8088000" />
+      <workItem from="1662464560245" duration="2870000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

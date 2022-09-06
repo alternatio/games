@@ -73,9 +73,31 @@
 .gameCell {
   font-size: 1.2rem;
   padding: 1rem 0;
+  text-transform: uppercase;
 }
 .game:hover {
   background: #22ffbb;
   color: #111;
   user-select: none;
+}
+
+.game:hover > .gameButtonWrapper {
+  opacity: 1;
+}
+
+.gameButtonWrapper {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  padding: 1rem 0;
+}
+
+.gameButton {
+  background: #111414;
+  color: #22ffbb;
+  padding: .1rem .5rem;
+  cursor: pointer;
+  height: fit-content;
+  font-size: 1.1rem;
+  text-transform: uppercase;
 }

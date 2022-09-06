@@ -4,6 +4,13 @@
   box-sizing: border-box;
   font-family: "IBM 3270", sans-serif;
   letter-spacing: -0.04em;
+  /*text-shadow: 0 0 .2rem #22ffbb;*/
+  /*filter: drop-shadow(0 0 .04em #22ffbb44);*/
+}
+
+::selection {
+  background: #22ffbb;
+  color: #111414;
 }
 
 ::-webkit-scrollbar {
@@ -23,7 +30,13 @@ body {
   background: #111414;
 }
 
+/*body {*/
+/*  color: #ff9955;*/
+/*  background: #111;*/
+/*}*/
+
 a {
-  color: white;
+  color: #22ffbb;
+  border-bottom: solid #22ffbb;
   text-decoration: none;
 }
