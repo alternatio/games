@@ -1,17 +1,24 @@
 .wrapper {
-  background: #282828;
+  background: #080808;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 2fr repeat(2, 1fr);
+  grid-template-columns: 2fr repeat(1, 1fr);
   grid-template-rows: repeat(1, 1fr);
   gap: .5rem;
   padding: 2rem 1rem;
 }
 
 .wrapper * {
-  font-family: 'IBMPlexMono';
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -.05em;
+}
+
+.centerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .roulette {
@@ -19,9 +26,10 @@
   /*border: solid .25rem #555;*/
   border-radius: .75rem;
   display: flex;
-  box-shadow: 0 1rem 1rem #0008;
+  /*box-shadow: 0 1rem 1rem #0008;*/
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .rouletteShadowInner {
@@ -49,6 +57,7 @@
   width: 100%;
   height: 100%;
   font-size: 6rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,52 +73,220 @@
 .history {
   background: #111;
   width: 100%;
-  height: 5rem;
+  height: 100%;
   border-radius: .75rem;
-  box-shadow: 0 1rem 1rem #0008;
 }
 
 .controller {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: .5rem;
   padding: 1rem;
   background: #111;
-  margin-top: 1rem;
+  width: 100%;
   border-radius: .75rem;
-  box-shadow: 0 1rem 1rem #0008;
 }
 
-.controllerHead, .controllerHead > p {
-  color: #fff;
-  font-size: 1rem;
-  gap: 1rem;
-  font-weight: 200;
+.head {
+  font-size: 3rem;
+  font-weight: 700;
+  position: relative;
+  color: #f36;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.head::after {
+  content: 'ROULETTE';
+  position: absolute;
+  color: transparent;
+  top: 0;
+  background-image: repeating-linear-gradient(
+  30deg,
+  transparent 0,
+  transparent .2rem,
+  #111 .2rem,
+  #111 .3rem
+  );
+  -webkit-background-clip: text;
+}
+
+.controllerHead {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  gap: .75rem;
+  width: 100%;
   user-select: none;
 }
 
-.controllerHead > p {
-  font-weight: 300;
-  color: #88ff88;
+.money, .answerMoney {
+  font-weight: 700;
+}
+.money {
+  color: #229922;
+}
+.answerMoney {
+  color: #333388;
+}
+
+.chips {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.chip {
+  width: 3rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  font-weight: 600;
+  font-size: .9rem;
+  background: #fff;
+  color: #000;
+  transform: translateY(0);
+}
+
+/*.chip[attribute='true'] {*/
+/*  transform: translateY(-.5rem);*/
+/*}*/
+
+.controllerButtonReset {
+  padding: .5rem;
+  height: fit-content;
+  border-radius: .5rem;
+  background: #992222;
+  color: #fff;
+  font-size: 1rem;
+  transition: .15s ease-in-out;
+  text-effect: outline;
+}
+
+.controllerButtonReset:hover {
+  opacity: .75;
 }
 
 .button {
-  /*background: #992222;*/
-  background: #111;
+  background: #992222;
+  /*background: #111;*/
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   width: 100%;
   height: fit-content;
   padding: 1rem 2rem;
   border-radius: .5rem;
   transition: .2s;
-  box-shadow: 0 .5rem 1rem #0000, 0 0 0 #fff;
+  box-shadow: 0 0 0 #fff;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .button:hover {
-  box-shadow: 0 .5rem 1rem #0008, 0 .5rem 0 #fff;
+  transform: translateY(-.5rem);
+  box-shadow: 0 .5rem 0 #fff;
 }
 
 .button:active {
-  box-shadow: 0 .5rem 1rem #0000, 0 0 0 #444;
-  transform: translateY(.5rem);
+  box-shadow: 0 0 0 #444;
+  transform: translateY(0);
+}
+
+.controllerBody {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+}
+
+.controllerOutside {
+  width: 10%;
+}
+
+.controllerEnter {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.controllerCells {
+  display: grid;
+  gap: .1rem;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  border-radius: .5rem;
+  /*overflow: hidden;*/
+}
+
+.blackCell, .redCell, .greenCell {
+  display: flex;
+  width: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: .25rem;
+  aspect-ratio: 5/4;
+  border-radius: .25rem;
+  color: #fff;
+  font-size: 1rem;
+  transition: .15s ease-in-out;
+  box-shadow: 0 0 0 .05rem #fff1;
+  cursor: pointer;
+  font-weight: 700;
+  position: relative;
+}
+
+.chipOnCell {
+  background: #fff;
+  border-radius: 50%;
+  padding: .1rem;
+  min-width: 2rem;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  font-weight: 500;
+  position: absolute;
+  /*right: 0;*/
+  transition: .15s ease-in-out;
+  border: #111 solid .2rem;
+}
+
+.chipOnCell:hover {
+  transform: translateY(-.25rem);
+  opacity: .25;
+}
+
+.blackCell:hover, .redCell:hover, .greenCell:hover {
+  transform: translateY(-.25rem);
+}
+
+.blackCell:hover {
+  box-shadow: 0 0 0 .05rem #FFFFFF, 0 .25rem 0 #000;
+}
+.redCell:hover {
+  box-shadow: 0 0 0 .05rem #FFFFFF, 0 .25rem 0 #770000;
+}
+.greenCell:hover {
+  box-shadow: 0 0 0 .05rem #FFFFFF, 0 .25rem 0 #005500;
+}
+.blackCell:active, .redCell:active, .greenCell:active {
+  transform: translateY(0);
+  box-shadow: 0 0 0 .05rem #fff;
+}
+
+.blackCell {
+  background: #0c0c0c;
+}
+
+.redCell {
+  background: #992222;
+}
+
+.greenCell {
+  grid-column: 1/2;
+  grid-row: 1/4;
+  height: 100%;
+  background: #227722;
 }

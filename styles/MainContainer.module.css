@@ -3,6 +3,7 @@
   gap: 1rem;
   position: absolute;
   padding: .5rem 1rem;
+  bottom: 0;
 }
 
 .link {

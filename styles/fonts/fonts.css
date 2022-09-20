@@ -1,25 +1,61 @@
 @font-face {
   src: url("./3270-Regular.woff");
   font-family: "IBM 3270";
-  font-variant: normal;
+  font-style: normal;
 }
-
 @font-face {
   src: url("./3270Condensed-Regular.woff") format("woff");
   font-family: "IBM 3270 Condensed";
-  font-variant: normal;
+  font-style: normal;
 }
 
 @font-face {
   src: url("./IBMPlexMono-Light.woff") format("woff");
   font-family: "IBMPlexMono";
-  font-variant: normal;
+  font-style: normal;
   font-weight: 200;
 }
-
 @font-face {
   src: url("./IBMPlexMono-Regular.woff") format("woff");
   font-family: "IBMPlexMono";
-  font-variant: normal;
+  font-style: normal;
   font-weight: 300;
+}
+
+
+@font-face {
+  src: url("./Montserrat-Light.woff") format("woff");
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 200;
+}
+@font-face {
+  src: url("./Montserrat-Regular.woff") format("woff");
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  src: url("./Montserrat-Italic.woff") format("woff");
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  src: url("./Montserrat-Medium.woff") format("woff");
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  src: url("./Montserrat-MediumItalic.woff") format("woff");
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  src: url("./Montserrat-Bold.woff") format("woff");
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 700;
 }
