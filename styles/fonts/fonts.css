@@ -59,3 +59,8 @@
   font-style: italic;
   font-weight: 700;
 }
+@font-face {
+  src: url("./Coworking.woff") format("woff");
+  font-family: "Coworking";
+  font-style: normal;
+}

@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #992222;
+  background: #911;
 }
 
 .info {
@@ -80,7 +80,7 @@
 .controller {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 2rem;
   padding: 1rem;
   background: #111;
   width: 100%;
@@ -88,33 +88,39 @@
 }
 
 .head {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
   position: relative;
-  color: #f36;
+  color: #fff;
   width: 100%;
   display: flex;
   justify-content: center;
+  font-family: Coworking, Montserrat, sans-serif;
+  text-transform: uppercase;
+  padding: 0 0 2rem 0;
+  user-select: none;
+  border-bottom: solid .25rem #fff;
 }
 
-.head::after {
-  content: 'ROULETTE';
-  position: absolute;
-  color: transparent;
-  top: 0;
-  background-image: repeating-linear-gradient(
-  30deg,
-  transparent 0,
-  transparent .2rem,
-  #111 .2rem,
-  #111 .3rem
-  );
-  -webkit-background-clip: text;
-}
+/*.head::after {*/
+/*  content: 'ROULETTE';*/
+/*  position: absolute;*/
+/*  color: transparent;*/
+/*  top: 0;*/
+/*  background-image: repeating-linear-gradient(*/
+/*  30deg,*/
+/*  transparent 0,*/
+/*  transparent .1rem,*/
+/*  #111 .1rem,*/
+/*  #111 .4rem*/
+/*  );*/
+/*  -webkit-background-clip: text;*/
+/*}*/
 
 .controllerHead {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: fit-content;
   gap: .75rem;
   width: 100%;
@@ -125,10 +131,13 @@
   font-weight: 700;
 }
 .money {
-  color: #229922;
+  color: #111;
+  background: #fff;
+  border-radius: .5rem;
+  padding: .5rem;
 }
 .answerMoney {
-  color: #333388;
+  color: #338;
 }
 
 .chips {
@@ -145,18 +154,17 @@
   font-size: .9rem;
   background: #fff;
   color: #000;
-  transform: translateY(0);
 }
 
 /*.chip[attribute='true'] {*/
-/*  transform: translateY(-.5rem);*/
+/*  transform: translateY(-1rem);*/
 /*}*/
 
 .controllerButtonReset {
   padding: .5rem;
   height: fit-content;
   border-radius: .5rem;
-  background: #992222;
+  background: #911;
   color: #fff;
   font-size: 1rem;
   transition: .15s ease-in-out;
@@ -168,7 +176,7 @@
 }
 
 .button {
-  background: #992222;
+  background: #911;
   /*background: #111;*/
   color: #fff;
   font-size: 1.25rem;
@@ -200,7 +208,8 @@
 }
 
 .controllerOutside {
-  width: 10%;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .controllerEnter {
@@ -230,10 +239,11 @@
   color: #fff;
   font-size: 1rem;
   transition: .15s ease-in-out;
-  box-shadow: 0 0 0 .05rem #fff1;
+  /*box-shadow: 0 0 0 .05rem #fff1;*/
   cursor: pointer;
   font-weight: 700;
   position: relative;
+  user-select: none;
 }
 
 .chipOnCell {
@@ -259,17 +269,17 @@
 }
 
 .blackCell:hover, .redCell:hover, .greenCell:hover {
-  transform: translateY(-.25rem);
+  transform: translateY(-.5rem);
 }
 
 .blackCell:hover {
-  box-shadow: 0 0 0 .05rem #FFFFFF, 0 .25rem 0 #000;
+  box-shadow: 0 0 0 .05rem #fff, 0 .5rem 0 #0008;
 }
 .redCell:hover {
-  box-shadow: 0 0 0 .05rem #FFFFFF, 0 .25rem 0 #770000;
+  box-shadow: 0 0 0 .05rem #fff, 0 .5rem 0 #4008;
 }
 .greenCell:hover {
-  box-shadow: 0 0 0 .05rem #FFFFFF, 0 .25rem 0 #005500;
+  box-shadow: 0 0 0 .05rem #fff, 0 .5rem 0 #0408;
 }
 .blackCell:active, .redCell:active, .greenCell:active {
   transform: translateY(0);
@@ -277,16 +287,16 @@
 }
 
 .blackCell {
-  background: #0c0c0c;
+  background: #0008;
 }
 
 .redCell {
-  background: #992222;
+  background: #9114;
 }
 
 .greenCell {
   grid-column: 1/2;
   grid-row: 1/4;
   height: 100%;
-  background: #227722;
+  background: #1714;
 }
