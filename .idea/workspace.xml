@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55ac399b-fceb-4cb9-972e-aae96a9f05ee" name="Changes" comment="Roulette changed">
+      <change afterPath="$PROJECT_DIR$/pages/games/monopoly.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/games/roulette.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/games/roulette.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/fonts/fonts.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/fonts/fonts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/roulette.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/roulette.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="CSS File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -41,7 +39,7 @@
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Language Defaults",
-    "ts.external.directory.path": "D:\\github\\games\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "D:\\githubworks\\games\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -68,6 +66,7 @@
       <workItem from="1663612147317" duration="5780000" />
       <workItem from="1663667428793" duration="18912000" />
       <workItem from="1663764487704" duration="9378000" />
+      <workItem from="1664884950954" duration="1584000" />
     </task>
     <task id="LOCAL-00001" summary="Roulette added">
       <created>1662479848311</created>
