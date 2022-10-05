@@ -1,121 +1,126 @@
-.wrapper {
-  background: #080808;
+.horizontalWrapper {
   width: 100%;
   height: 100vh;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 2fr repeat(1, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  gap: .5rem;
-  padding: 2rem 1rem;
-}
-
-.wrapper * {
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: -.05em;
-}
-
-.centerBlock {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  background: #eee;
+  font-family: 'AtypDisplay', sans-serif;
+  letter-spacing: -.01em;
+}
+.horizontalWrapper *::selection {
+  background: #53f;
+  color: #fff;
+}
+.wrapper {
+  width: min(100%, 80rem);
+  height: 100%;
+  display: flex;
+  padding: .5rem .5rem 2.25rem;
+}
+
+.rouletteBlock {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  border-radius: 0 2rem 2rem 0;
+  overflow: hidden;
+  width: 5rem;
+  transition: .5s cubic-bezier(.35, .35, 0, .7);
+}
+.rouletteBlock[attribute='true'] {
+  width: 100%;
 }
 
 .roulette {
-  background: #222;
-  /*border: solid .25rem #555;*/
-  border-radius: .75rem;
+  background: #fff;
   display: flex;
-  /*box-shadow: 0 1rem 1rem #0008;*/
   position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border-left: #111 solid .1rem;
+}
+
+.rouletteField {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  height: 100%;
 }
 
-.rouletteShadowInner {
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  left: 0;
+.rouletteSlider {
   width: 100%;
   height: 100%;
-  box-shadow: inset #0006 0 0 1rem;
-}
-
-.rouletteShadowTop {
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 20%;
-  background: linear-gradient(0deg, #0000, #0006);
+  display: flex;
+  flex-direction: column;
+  transition: 4s cubic-bezier(.35, .35, .2, .7);
+  /*transform: translateY(-600%);*/
 }
 
 .card {
   color: #fff;
   width: 100%;
   height: 100%;
-  font-size: 6rem;
-  font-weight: 600;
+  min-height: 100%;
+  font-size: 10rem;
+  font-weight: 700;
+  font-style: italic;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #911;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.history {
-  background: #111;
-  width: 100%;
-  height: 100%;
-  border-radius: .75rem;
+  background: #f13;
 }
 
 .controller {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 1rem;
-  background: #111;
+  gap: 1rem;
+  padding: 2rem 1rem 1rem;
+  background: #fff;
+  width: 5rem;
+  overflow: hidden;
+  border-radius: 2rem 0 0 2rem;
+  color: #111;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: .5s cubic-bezier(.35, .35, 0, .7);
+}
+.controller[attribute='true'] {
   width: 100%;
-  border-radius: .75rem;
 }
 
 .head {
-  font-size: 4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  position: relative;
-  color: #fff;
-  width: 100%;
+  font-style: italic;
   display: flex;
   justify-content: center;
-  font-family: Coworking, Montserrat, sans-serif;
+  font-family: AtypDisplay, sans-serif;
   text-transform: uppercase;
-  padding: 0 0 2rem 0;
   user-select: none;
-  border-bottom: solid .25rem #fff;
+  position: absolute;
+  z-index: 10;
+  transform: rotate(270deg);
+  opacity: 1;
+  transition: .5s cubic-bezier(.35, .35, 0, .7);
+  padding: .5rem 1rem;
+  text-decoration: underline;
+  border-radius: 1rem;
+}
+.head[attribute='true'] {
+  opacity: 0;
+  pointer-events: none;
+}
+.head:hover {
+  transform: rotate(270deg) translateX(1rem);
 }
 
-/*.head::after {*/
-/*  content: 'ROULETTE';*/
-/*  position: absolute;*/
-/*  color: transparent;*/
-/*  top: 0;*/
-/*  background-image: repeating-linear-gradient(*/
-/*  30deg,*/
-/*  transparent 0,*/
-/*  transparent .1rem,*/
-/*  #111 .1rem,*/
-/*  #111 .4rem*/
-/*  );*/
-/*  -webkit-background-clip: text;*/
-/*}*/
+.controllerMain {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
 .controllerHead {
   display: flex;
@@ -127,17 +132,12 @@
   user-select: none;
 }
 
-.money, .answerMoney {
-  font-weight: 700;
-}
 .money {
-  color: #111;
-  background: #fff;
-  border-radius: .5rem;
-  padding: .5rem;
-}
-.answerMoney {
-  color: #338;
+  color: #11dd66;
+  /*background: #fff;*/
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-bottom: #11dd66 solid .15rem;
 }
 
 .chips {
@@ -146,58 +146,41 @@
   align-items: center;
 }
 
-.chip {
+.chipLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   width: 3rem;
   aspect-ratio: 1/1;
-  border-radius: 50%;
-  font-weight: 600;
-  font-size: .9rem;
-  background: #fff;
-  color: #000;
 }
-
-/*.chip[attribute='true'] {*/
-/*  transform: translateY(-1rem);*/
-/*}*/
-
-.controllerButtonReset {
-  padding: .5rem;
-  height: fit-content;
-  border-radius: .5rem;
-  background: #911;
-  color: #fff;
-  font-size: 1rem;
-  transition: .15s ease-in-out;
-  text-effect: outline;
-}
-
-.controllerButtonReset:hover {
-  opacity: .75;
-}
-
-.button {
-  background: #911;
-  /*background: #111;*/
-  color: #fff;
-  font-size: 1.25rem;
+.chipInput {
+  appearance: none;
   width: 100%;
-  height: fit-content;
-  padding: 1rem 2rem;
-  border-radius: .5rem;
-  transition: .2s;
-  box-shadow: 0 0 0 #fff;
-  text-transform: uppercase;
-  font-weight: 600;
+  height: 100%;
+  border-radius: 50%;
+  background: #fff;
+  border: solid .15rem #111;
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .25s cubic-bezier(.35, .35, 0, .7);
 }
-
-.button:hover {
-  transform: translateY(-.5rem);
-  box-shadow: 0 .5rem 0 #fff;
+.chipInput:before {
+  content: attr(value);
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: IBMPlexMono, monospace;
 }
-
-.button:active {
-  box-shadow: 0 0 0 #444;
-  transform: translateY(0);
+.chipInput:disabled {
+  background: #ddd;
+  color: #aaa;
+}
+.chipInput:checked {
+  transform: translateY(-1rem);
+  box-shadow: 0 -.5rem #111;
 }
 
 .controllerBody {
@@ -208,19 +191,72 @@
 }
 
 .controllerOutside {
+  display: flex;
+  gap: .5rem;
+  justify-content: space-between;
   width: 100%;
-  padding: 1rem 0;
+}
+.buttonOutside {
+  padding: .75rem 0;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-family: AtypDisplay, sans-serif;
+  transition: .2s  cubic-bezier(.35, .35, 0, .7);
+  border-radius: 1rem;
+}
+.buttonOutside:hover {
+  background: #1111;
+  transform: translateY(-.2rem);
+}
+.buttonOutside:active {
+  transform: translateY(0);
+}
+.buttonOutsideRed, .buttonOutsideBlack {
+  width: 1.25rem;
+  aspect-ratio: 1/1;
+  transform: rotate(45deg);
+  background: #ff1133;
+}
+.buttonOutsideBlack {
+  background: #111;
 }
 
 .controllerEnter {
   display: flex;
+  gap: .5rem;
+}
+
+.controllerLines {
+  display: flex;
   flex-direction: column;
-  width: fit-content;
+  justify-content: space-between;
+  gap: .5rem;
+}
+.controllerLine {
+  height: 100%;
+  width: 5rem;
+  font-size: 1rem;
+  border-radius: .75rem;
+  transition: .4s cubic-bezier(.35, .35, 0, .7);
+  color: #111;
+}
+.controllerLine:hover {
+  transform: translateY(-.5rem);
+  background: #1111;
+}
+.controllerLine:active {
+  transform: translateY(0);
 }
 
 .controllerCells {
   display: grid;
-  gap: .1rem;
+  gap: 0;
   grid-template-rows: repeat(3, 1fr);
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
@@ -235,15 +271,16 @@
   justify-content: center;
   padding: .25rem;
   aspect-ratio: 5/4;
-  border-radius: .25rem;
   color: #fff;
   font-size: 1rem;
-  transition: .15s ease-in-out;
+  transition: .25s cubic-bezier(.35, .35, 0, .7);
   /*box-shadow: 0 0 0 .05rem #fff1;*/
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 400;
   position: relative;
   user-select: none;
+  box-shadow: 0 0 0 #111;
+  font-family: IBMPlexMono, monospace;
 }
 
 .chipOnCell {
@@ -256,47 +293,120 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: 1/1;
-  font-weight: 500;
   position: absolute;
-  /*right: 0;*/
-  transition: .15s ease-in-out;
+  transition: .25s cubic-bezier(.35, .35, 0, .7);
   border: #111 solid .2rem;
+  z-index: 1;
+  pointer-events: none;
+  font-family: IBMPlexMono, monospace;
+  font-weight: 300;
 }
 
-.chipOnCell:hover {
-  transform: translateY(-.25rem);
-  opacity: .25;
+.blackCell:hover > .chipOnCell, .redCell:hover > .chipOnCell, .greenCell:hover > .chipOnCell {
+  opacity: 0;
 }
 
 .blackCell:hover, .redCell:hover, .greenCell:hover {
   transform: translateY(-.5rem);
-}
-
-.blackCell:hover {
-  box-shadow: 0 0 0 .05rem #fff, 0 .5rem 0 #0008;
-}
-.redCell:hover {
-  box-shadow: 0 0 0 .05rem #fff, 0 .5rem 0 #4008;
-}
-.greenCell:hover {
-  box-shadow: 0 0 0 .05rem #fff, 0 .5rem 0 #0408;
+  box-shadow: 0 .5rem 0 #111;
+  filter: invert(.1);
 }
 .blackCell:active, .redCell:active, .greenCell:active {
   transform: translateY(0);
-  box-shadow: 0 0 0 .05rem #fff;
+  box-shadow: 0 0 0 #111;
 }
 
 .blackCell {
-  background: #0008;
+  background: #111;
 }
 
 .redCell {
-  background: #9114;
+  background: #ff1133;
 }
 
 .greenCell {
   grid-column: 1/2;
   grid-row: 1/4;
   height: 100%;
-  background: #1714;
+  background: #1d6;
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottomButton {
+  font-family: AtypDisplay, sans-serif;
+  font-size: 1.2rem;
+  padding: .75rem 1.5rem;
+  border-radius: 1.25rem;
+  color: #111;
+  font-weight: 500;
+  transition: .25s ease-out;
+}
+.bottomButton:hover {
+  background: #f11;
+  color: #fff;
+  transform: translateY(-.25rem);
+}
+.bottomButton:active {
+  transform: translateY(0);
+}
+
+.infoButton {
+  font-size: .8rem;
+  color: #111;
+  font-family: AtypDisplay, sans-serif;
+  text-decoration: underline;
+}
+
+.infoBlock {
+  position: absolute;
+  top: 10%;
+  left: 6rem;
+  width: calc(100% - 12rem);
+  height: 80%;
+  background: #fffc;
+  backdrop-filter: blur(.75rem);
+  box-shadow: 0 1rem 2rem #1112;
+  border-radius: 2rem;
+}
+.infoBlockWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 4rem 3rem;
+  display: flex;
+  gap: 4rem;
+}
+.cross {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  font-size: 1rem;
+  padding: 1rem;
+  transition: .3s ease-out;
+  color: #111;
+}
+.cross:hover {
+  opacity: .5;
+}
+
+.infoLeftPart, .infoRightPart {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 45%;
+  font-size: 1.1rem;
+}
+
+.infoRightPart {
+  margin: auto 0;
+  text-indent: 1rem;
+}
+
+.infoList {
+  font-weight: 500;
 }

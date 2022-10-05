@@ -22,45 +22,39 @@
   font-weight: 300;
 }
 
-
-@font-face {
-  src: url("./Montserrat-Light.woff") format("woff");
-  font-family: "Montserrat";
-  font-style: italic;
-  font-weight: 200;
-}
-@font-face {
-  src: url("./Montserrat-Regular.woff") format("woff");
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-}
-@font-face {
-  src: url("./Montserrat-Italic.woff") format("woff");
-  font-family: "Montserrat";
-  font-style: italic;
-  font-weight: 400;
-}
-@font-face {
-  src: url("./Montserrat-Medium.woff") format("woff");
-  font-family: "Montserrat";
-  font-style: italic;
-  font-weight: 500;
-}
-@font-face {
-  src: url("./Montserrat-MediumItalic.woff") format("woff");
-  font-family: "Montserrat";
-  font-style: italic;
-  font-weight: 500;
-}
-@font-face {
-  src: url("./Montserrat-Bold.woff") format("woff");
-  font-family: "Montserrat";
-  font-style: italic;
-  font-weight: 700;
-}
 @font-face {
   src: url("./Coworking.woff") format("woff");
   font-family: "Coworking";
   font-style: normal;
+}
+
+@font-face {
+  src: url("./AtypDisplay-Regular.woff2") format("woff2");
+  font-family: "AtypDisplay";
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  src: url("./AtypDisplay-Italic.woff2") format("woff2");
+  font-family: "AtypDisplay";
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  src: url("./AtypDisplay-Medium.woff2") format("woff2");
+  font-family: "AtypDisplay";
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  src: url("./AtypDisplay-BoldItalic.woff2") format("woff2");
+  font-family: "AtypDisplay";
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  src: url("./AtypDisplay-Bold.woff2") format("woff2");
+  font-family: "AtypDisplay";
+  font-style: normal;
+  font-weight: 700;
 }

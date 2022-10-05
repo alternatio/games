@@ -2,14 +2,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "IBM 3270", sans-serif;
-  /*text-shadow: 0 0 .2rem #22ffbb;*/
-  /*filter: drop-shadow(0 0 .04em #22ffbb44);*/
-}
-
-::selection {
-  background: #22ffbb;
-  color: #111414;
 }
 
 ::-webkit-scrollbar {
@@ -24,16 +16,6 @@ html {
   font-size: 20px;
 }
 
-body {
-  color: #22ffbb;
-  background: #111414;
-}
-
-/*body {*/
-/*  color: #ff9955;*/
-/*  background: #111;*/
-/*}*/
-
 a {
   color: #22ffbb;
   border-bottom: solid #22ffbb;
@@ -44,4 +26,5 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
+  background: transparent;
 }

@@ -10,7 +10,9 @@ const MainContainer: NextPage<MainContainerProps> = (props) => {
 	return (
 		<>
 			<header className={style.header}>
-				<Link href={'/'}><a className={style.link}>&lt; Вернуться на главную</a></Link>
+				<Link href={'/'}>
+					<a className={style.link}>◀ Вернуться на главную</a>
+				</Link>
 			</header>
 			{props.children}
 		</>

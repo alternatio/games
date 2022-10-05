@@ -2,107 +2,94 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  background: #fff;
+  color: #111;
+}
+
+.horizontalWrapper *::selection {
+  background: #ff3377;
+  color: #fff;
 }
 
 .verticalWrapper {
-  width: min(100%, 50rem);
+  width: min(100%, 74rem);
 }
 
 .verticalWrapper * {
-  font-family: "IBM 3270";
+  font-family: "IBM 3270", monospace;
   letter-spacing: -0.04em;
 }
 
 .header {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   padding: 1rem 2rem;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  padding: 0 0 0 20%;
+  /*padding: 0 0 0 20%;*/
   gap: .5rem;
 }
 
 .mainTop {
-  background: #22ffbb;
-  color: #111;
-  display: grid;
+  background: #000;
+  color: #fff;
+  display: flex;
   align-items: center;
-  padding: 0 .75rem 0 0;
-  grid-template-columns: .25fr repeat(3, 1fr) 1fr;
 }
 
 .mainTopID {
   text-transform: uppercase;
+  width: 2rem;
 }
 
 .mainTopCell {
   text-transform: uppercase;
+  width: 30%;
 }
 
 .games {
   height: 80vh;
-  overflow: auto;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
 }
 
 .game {
-  display: grid;
-  grid-template-columns: .25fr repeat(3, 1fr) 1fr;
+  display: flex;
+  align-items: center;
+  min-height: 4rem;
+  transition: .1s linear background-color;
 }
-
-.game > * {
-  overflow: hidden;
-  position: relative;
-}
-
-/*.game > *:not(*:first-child):before {*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  background: linear-gradient(90deg, #11141400, #111414);*/
-/*  height: 100%;*/
-/*  width: 2rem;*/
-/*  right: 0;*/
-/*  top: 0;*/
-/*}*/
 
 .gameID {
   font-size: 1.2rem;
-  padding: 1rem 0;
+  width: 2rem;
 }
 
 .gameCell {
   font-size: 1.2rem;
-  padding: 1rem 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
+  width: 30%;
 }
 .game:hover {
-  background: #22ffbb;
+  background: #33ffcc;
   color: #111;
-  user-select: none;
-}
-
-.game:hover > .gameButtonWrapper {
-  opacity: 1;
-}
-
-.gameButtonWrapper {
-  display: flex;
-  justify-content: center;
-  opacity: 0;
-  padding: 1rem 0;
 }
 
 .gameButton {
   background: #111414;
-  color: #22ffbb;
-  padding: .1rem .5rem;
+  color: #fff;
+  padding: .5rem 1rem;
   cursor: pointer;
-  height: fit-content;
   font-size: 1.1rem;
   text-transform: uppercase;
+  width: fit-content;
+  opacity: 0;
+  user-select: none;
+  transition: .1s linear opacity;
+}
+.game:hover > .gameButton {
+  opacity: 1;
 }

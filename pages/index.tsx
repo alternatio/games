@@ -35,13 +35,11 @@ const Home: NextPage = () => {
                     <div className={style.gameCell}>
                       {value.techs}
                     </div>
-                    <div className={style.gameButtonWrapper}>
-                      <Link href={`/games/${value.name}`}>
-                        <a className={style.gameButton}>
-                          play
-                        </a>
-                      </Link>
-                    </div>
+                    <Link href={`/games/${value.name}`}>
+                      <a className={style.gameButton}>
+                        play
+                      </a>
+                    </Link>
                   </div>
                 )
               })
