@@ -1,49 +1,95 @@
-import {FC, useState} from "react";
+import React, {FC, ReactNode, useState} from "react";
 import style from "../../styles/roulette.module.css";
 import {AnimatePresence, motion} from "framer-motion";
+import chipsNumbers from "./data/chipData";
+import rouletteNumbers from "./data/rouletteNumbersData";
 
 import ButtonChip from "./ButtonChip";
 import Cell from "./Cell";
-
-const rouletteNumbers: number[] = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26]
-const chipsNumbers: number[] = [1, 10, 25, 50, 100, 500, 1000, 2000]
+import OuterButton from "./OuterButton";
 
 interface ControllerProps {
+	bets: {mass: number, bet: number}[]
+	setBets: Function
 	money: number
 	setMoney: Function
 	answerMoney: number
 	setAnswerMoney: Function
 	blockSelected: number
 	setBlockSelected: Function
+	themeIsLight: boolean
+	handleThemeIsLight: Function
+	rotateRoulette: Function
+	spinArray: number[]
+	spinIsEnd: boolean
 }
 
 const Controller: FC<ControllerProps> = (props ) => {
-	const [selectedChip, setSelectedChip] = useState<number>(1)
+	const [selectedChip, setSelectedChip] = useState<number>(0)
 	const [infoVisible, setInfoVisible] = useState<boolean>(false)
+
+	const addBet: Function = (num: number, bet: number) => {
+		if (props.money >= chipsNumbers[selectedChip]) {
+			const copyBets: {mass: number, bet: number}[] = [...props.bets]
+			props.setMoney(props.money - chipsNumbers[selectedChip])
+			copyBets[num].bet += bet
+			props.setBets(copyBets)
+		}
+	}
+
+	const removeBets: Function = () => {
+		const copyBets: {mass: number, bet: number}[] = [...props.bets]
+		let copyBet = 0
+		copyBets.map((value) => {
+			copyBet += value.bet
+			value.bet = 0
+		})
+		props.setMoney(props.money + copyBet)
+		props.setBets(copyBets)
+	}
 
 	const addCell = (value: number) => {
 		if ((value >= 1 && value <= 10) || (value >= 19 && value <= 28)) {
-			console.log(value)
 			return value % 2 === 0 ?
 				<Cell
+					selectedChip={selectedChip}
+					addBet={addBet}
+					bets={props.bets}
+					setBets={props.setBets}
 					cellValue={value}
 					className={style.redCell} /> :
 				<Cell
+					selectedChip={selectedChip}
+					addBet={addBet}
+					bets={props.bets}
+					setBets={props.setBets}
 					cellValue={value}
 					className={style.blackCell} />
 		}
 		if ((value >= 11 && value <= 18) || (value >= 29 && value <= 36)) {
 			return value % 2 === 0 ?
 				<Cell
+					selectedChip={selectedChip}
+					addBet={addBet}
+					bets={props.bets}
+					setBets={props.setBets}
 					cellValue={value}
 					className={style.blackCell} /> :
 				<Cell
+					selectedChip={selectedChip}
+					addBet={addBet}
+					bets={props.bets}
+					setBets={props.setBets}
 					cellValue={value}
 					className={style.redCell} />
 		}
 		else {
 			return (
 				<Cell
+					selectedChip={selectedChip}
+					addBet={addBet}
+					bets={props.bets}
+					setBets={props.setBets}
 					cellValue={value}
 					className={style.greenCell} />
 			)
@@ -54,12 +100,21 @@ const Controller: FC<ControllerProps> = (props ) => {
 		<div
 			attribute={(props.blockSelected === 0).toString()}
 			className={style.controller}>
-			<button
-				attribute={(props.blockSelected === 0).toString()}
-				onClick={() => props.setBlockSelected(0)}
-				className={style.head}>
-				controller
-			</button>
+			<AnimatePresence>
+				{props.spinIsEnd &&
+					<motion.button
+						initial={{opacity: 0}}
+						animate={{opacity: 1}}
+						exit={{opacity: 0}}
+						attribute={(props.blockSelected === 0).toString()}
+						onClick={() => {
+							props.setBlockSelected(0)
+						}}
+						className={style.head}>
+						controller
+					</motion.button>
+				}
+			</AnimatePresence>
 			<AnimatePresence>
 				{props.blockSelected === 0 &&
 				<motion.div
@@ -67,70 +122,130 @@ const Controller: FC<ControllerProps> = (props ) => {
           initial={{opacity: 0}}
           animate={{opacity: 1}}
           exit={{opacity: 0}}>
-          <div
+          <motion.div
+	          layoutScroll
 	          className={style.controllerHead}>
             <span className={style.money}>{props.money}$</span>
-            <div className={style.chips}>
-							{
-								chipsNumbers.map(value => {
-									return (
-										<ButtonChip
-											setSelectedChip={setSelectedChip}
-											selectedChip={selectedChip}
-											setMoney={props.setMoney}
-											money={props.money}
-											value={value}/>
-									)
-								})
-							}
-            </div>
-          </div>
+	          {chipsNumbers.map((value, index) => {
+		          return (
+			          <ButtonChip
+				          setSelectedChip={setSelectedChip}
+				          selectedChip={selectedChip}
+				          setMoney={props.setMoney}
+				          money={props.money}
+				          index={index}
+				          value={value}/>
+		          )
+	          })}
+	          <AnimatePresence>
+		          {(props.bets.find(obj => obj.bet > 0)) && (
+			          <motion.button
+				          initial={{width: '0rem', height: '2.5rem'}}
+				          animate={{width: '10.5rem'}}
+				          exit={{height: '0rem'}}
+				          onClick={() => removeBets()}
+				          className={style.buttonHead}>
+				          <div>
+					          Сбросить ставки
+				          </div>
+			          </motion.button>
+		          )}
+	          </AnimatePresence>
+          </motion.div>
           <div className={style.controllerBody}>
             <div className={style.controllerOutside}>
-							<button className={style.buttonOutside}>
-								manque (1-18)
-							</button>
-              <button className={style.buttonOutside}>
+	            <OuterButton
+                bets={props.bets}
+                addBetNumber={37}
+		            selectedChip={selectedChip}
+		            addBet={addBet}>
+                manque (1-18)
+	            </OuterButton>
+              <OuterButton
+                bets={props.bets}
+                addBetNumber={38}
+                selectedChip={selectedChip}
+                addBet={addBet}>
                 impair (нечётный)
-              </button>
-              <button className={style.buttonOutside}>
+              </OuterButton>
+              <OuterButton
+	              bets={props.bets}
+                addBetNumber={39}
+                selectedChip={selectedChip}
+                addBet={addBet}>
                 <span className={style.buttonOutsideRed}></span>
-              </button>
+              </OuterButton>
             </div>
             <div className={style.controllerEnter}>
               <div className={style.controllerCells}>
 								{rouletteNumbers.map((value, index) => addCell(index))}
               </div>
 	            <div className={style.controllerLines}>
-		            <button className={style.controllerLine}>
-			            ◀
-		            </button>
-                <button className={style.controllerLine}>
+                <OuterButton
+                  bets={props.bets}
+                  addBetNumber={40}
+                  selectedChip={selectedChip}
+                  addBet={addBet}>
                   ◀
-                </button>
-                <button className={style.controllerLine}>
+                </OuterButton>
+                <OuterButton
+                  bets={props.bets}
+                  addBetNumber={41}
+                  selectedChip={selectedChip}
+                  addBet={addBet}>
                   ◀
-                </button>
+                </OuterButton>
+                <OuterButton
+                  bets={props.bets}
+                  addBetNumber={42}
+                  selectedChip={selectedChip}
+                  addBet={addBet}>
+                  ◀
+                </OuterButton>
 	            </div>
             </div>
             <div className={style.controllerOutside}>
-              <button className={style.buttonOutside}>
+              <OuterButton
+                bets={props.bets}
+                addBetNumber={43}
+                selectedChip={selectedChip}
+                addBet={addBet}>
                 passe (19-36)
-              </button>
-              <button className={style.buttonOutside}>
+              </OuterButton>
+              <OuterButton
+                bets={props.bets}
+                addBetNumber={44}
+                selectedChip={selectedChip}
+                addBet={addBet}>
                 pair (чётный)
-              </button>
-              <button className={style.buttonOutside}>
+              </OuterButton>
+              <OuterButton
+                bets={props.bets}
+                addBetNumber={45}
+                selectedChip={selectedChip}
+                addBet={addBet}>
                 <span className={style.buttonOutsideBlack}></span>
-              </button>
+              </OuterButton>
             </div>
           </div>
 					<div className={style.bottom}>
-						<button className={style.bottomButton}>
+						<button
+							onClick={() => {
+								console.log(props.bets)
+								props.rotateRoulette()
+							}}
+							className={style.bottomButton}>
 							Крутить
 						</button>
 					</div>
 					<div className={style.footer}>
+						<button
+							onClick={() => {
+								props.handleThemeIsLight(!props.themeIsLight)
+							}}
+							className={style.infoButton}>
+							Тема: {props.themeIsLight ? 'light' : 'dark'}
+						</button>
 						<button
 							onClick={() => {
 								setInfoVisible(true)
@@ -145,9 +260,10 @@ const Controller: FC<ControllerProps> = (props ) => {
 					<AnimatePresence>
 						{infoVisible &&
 							<motion.div
-								initial={{opacity: 0}}
-								animate={{opacity: 1}}
-								exit={{opacity: 0}}
+								initial={{opacity: 0, scaleX: 0, scaleY: .9}}
+								animate={{opacity: 1, scaleX: 1, scaleY: 1}}
+								exit={{opacity: 0, scaleX: 0, scaleY: .9}}
+								transition={{type: 'easy-out'}}
 								className={style.infoBlock}>
 								<div className={style.infoBlockWrapper}>
 									<button
@@ -182,4 +298,4 @@ const Controller: FC<ControllerProps> = (props ) => {
 	)
 }
 
-export default Controller
+export default React.memo(Controller)

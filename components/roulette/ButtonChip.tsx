@@ -1,6 +1,7 @@
-import {FC, useState} from "react";
+import React, {FC} from "react";
 import {motion} from "framer-motion";
 import style from "../../styles/roulette.module.css";
+import chipsNumbers from './data/chipData'
 
 interface ButtonChipProps {
 	value: number
@@ -8,6 +9,7 @@ interface ButtonChipProps {
 	money: number
 	setSelectedChip: Function
 	selectedChip: number
+	index: number
 }
 
 const ButtonChip: FC<ButtonChipProps> = (props) => {
@@ -15,11 +17,11 @@ const ButtonChip: FC<ButtonChipProps> = (props) => {
 		<motion.label className={style.chipLabel}>
 			<input
 				onClick={() => {
-					if ((props.money >= props.value) && (props.selectedChip != props.value)) {
-						props.setSelectedChip(props.value)
+					if ((props.money >= props.value) && (chipsNumbers[props.selectedChip] != props.value)) {
+						props.setSelectedChip(props.index)
 					}
 				}}
-				checked={props.value === props.selectedChip}
+				checked={props.value === chipsNumbers[props.selectedChip]}
 				className={style.chipInput}
 				name={'chipInput'}
 				value={props.value}
@@ -28,4 +30,4 @@ const ButtonChip: FC<ButtonChipProps> = (props) => {
 	)
 }
 
-export default ButtonChip
+export default React.memo(ButtonChip)
