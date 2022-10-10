@@ -83,7 +83,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 0 1rem;
   background: #fff;
   width: 5rem;
   overflow: hidden;
@@ -127,7 +127,7 @@
 .controllerMain {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .75rem;
 }
 
 .controllerHead {
@@ -386,9 +386,8 @@
   left: 6rem;
   width: calc(100% - 12rem);
   height: 80%;
-  background: #fffc;
-  backdrop-filter: blur(.75rem);
-  box-shadow: 0 1rem 2rem #1112;
+  background: #fffe;
+  box-shadow: 0 1rem 2rem #9992;
   border-radius: 2rem;
   z-index: 10;
 }
@@ -433,7 +432,7 @@
 .footer {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 
@@ -456,3 +455,76 @@
 .buttonHead:active {
   transform: translateY(0);
 }
+
+.roulettePopup {
+  position: absolute;
+  z-index: 10;
+  background: #fff8;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  align-self: center;
+  top: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.history {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  font-weight: 500;
+}
+.historyHead {
+  margin-right: .25rem;
+}
+.historyBlockRed, .historyBlockBlack, .historyBlockGreen {
+  padding: .5rem 0;
+  width: 2.5rem;
+  text-align: center;
+  background: #eee;
+  border-radius: .75rem;
+  color: #fff;
+}
+.historyBlockRed {
+  background: #ff1133;
+}
+.historyBlockBlack {
+  background: #111;
+}
+.historyBlockGreen {
+  background: #11dd66;
+}
+
+.code {
+  position: absolute;
+  display: flex;
+  top: .5rem;
+  align-items: center;
+  align-self: center;
+  background: #eee;
+  width: 5rem;
+  height: 1rem;
+}
+
+.codeInput {
+  opacity: 0;
+  position: absolute;
+}
+
+/*@media (max-width: 1200px) {*/
+/*  .controllerCells {*/
+/*    grid-template-columns: repeat(3, 1fr);*/
+/*    grid-auto-rows: 1fr;*/
+/*    grid-template-rows: unset;*/
+/*    grid-auto-flow: row;*/
+/*  }*/
+/*  .redCell, .blackCell, .greenCell {*/
+/*    width: 2rem;*/
+/*    height: 3vh;*/
+/*  }*/
+/*  .greenCell {*/
+/*    grid-column: 1/4;*/
+/*    grid-row: 1/2;*/
+/*    width: 100%;*/
+/*  }*/
+/*}*/

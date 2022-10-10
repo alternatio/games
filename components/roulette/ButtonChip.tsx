@@ -16,7 +16,7 @@ const ButtonChip: FC<ButtonChipProps> = (props) => {
 	return (
 		<motion.label className={style.chipLabel}>
 			<input
-				onClick={() => {
+				onChange={() => {
 					if ((props.money >= props.value) && (chipsNumbers[props.selectedChip] != props.value)) {
 						props.setSelectedChip(props.index)
 					}

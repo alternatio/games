@@ -10,13 +10,14 @@ import RouletteBlock from '../../components/roulette/RouletteBlock'
 import Controller from "../../components/roulette/Controller";
 
 const Roulette: NextPage = () => {
-	const [money, setMoney] = useState<number>(1600)
+	const [money, setMoney] = useState<number>(1000)
 	const [answerMoney, setAnswerMoney] = useState<number>(0)
 	const [blockSelected, setBlockSelected] = useState<number>(0)
 	const [bets, setBets] = useState<{mass: number, bet: number}[]>(betsData)
 	const [themeIsLight, handleThemeIsLight] = useState<boolean>(true)
 	const [spinArray, setSpinArray] = useState<number[]>([0])
 	const [spinIsEnd, handleSpinIsEnd] = useState<boolean>(true)
+	const [historySpins, setHistorySpins] = useState<number[]>([])
 
 	const rotateRoulette: Function = () => {
 		if (bets.find(obj => obj.bet > 0)) {
@@ -50,6 +51,12 @@ const Roulette: NextPage = () => {
 			}
 			setSpinArray(copySpinArray)
 			console.log(copySpinArray)
+
+			const copySpinHistory: number[] = [...historySpins, copySpinArray[copySpinArray.length - 1]]
+			if (copySpinHistory.length > 6) {
+				copySpinHistory.shift()
+			}
+			setHistorySpins(copySpinHistory)
 		}
 	}
 
@@ -58,20 +65,21 @@ const Roulette: NextPage = () => {
 			filter: 'invert(0) hue-rotate(0) saturate(1) contrast(1)'
 		},
 		dark: {
-			filter: 'invert(1) hue-rotate(25deg) saturate(.9) contrast(.95)'
+			filter: 'invert(1) hue-rotate(-170deg) saturate(.9) contrast(.975)'
 		}
 	}
 
 	return (
-		<MainContainer>
 			<motion.div
 				variants={variantsTheme}
 				initial={false}
 				animate={themeIsLight ? 'light' : 'dark'}
 
 				className={style.horizontalWrapper}>
+				<MainContainer>
 				<div className={style.wrapper}>
 					<Controller
+						historySpins={historySpins}
 						spinIsEnd={spinIsEnd}
 						spinArray={spinArray}
 						rotateRoulette={rotateRoulette}
@@ -96,8 +104,8 @@ const Roulette: NextPage = () => {
 						setBlockSelected={setBlockSelected}
 						blockSelected={blockSelected}/>
 				</div>
+				</MainContainer>
 			</motion.div>
-		</MainContainer>
 	)
 }
 

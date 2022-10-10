@@ -22,11 +22,13 @@ interface ControllerProps {
 	rotateRoulette: Function
 	spinArray: number[]
 	spinIsEnd: boolean
+	historySpins: number[]
 }
 
 const Controller: FC<ControllerProps> = (props ) => {
 	const [selectedChip, setSelectedChip] = useState<number>(0)
 	const [infoVisible, setInfoVisible] = useState<boolean>(false)
+	const [code, setCode] = useState<string[]>([])
 
 	const addBet: Function = (num: number, bet: number) => {
 		if (props.money >= chipsNumbers[selectedChip]) {
@@ -52,6 +54,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 		if ((value >= 1 && value <= 10) || (value >= 19 && value <= 28)) {
 			return value % 2 === 0 ?
 				<Cell
+					key={value}
 					selectedChip={selectedChip}
 					addBet={addBet}
 					bets={props.bets}
@@ -59,6 +62,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 					cellValue={value}
 					className={style.redCell} /> :
 				<Cell
+					key={value}
 					selectedChip={selectedChip}
 					addBet={addBet}
 					bets={props.bets}
@@ -69,6 +73,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 		if ((value >= 11 && value <= 18) || (value >= 29 && value <= 36)) {
 			return value % 2 === 0 ?
 				<Cell
+					key={value}
 					selectedChip={selectedChip}
 					addBet={addBet}
 					bets={props.bets}
@@ -76,6 +81,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 					cellValue={value}
 					className={style.blackCell} /> :
 				<Cell
+					key={value}
 					selectedChip={selectedChip}
 					addBet={addBet}
 					bets={props.bets}
@@ -86,6 +92,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 		else {
 			return (
 				<Cell
+					key={value}
 					selectedChip={selectedChip}
 					addBet={addBet}
 					bets={props.bets}
@@ -129,6 +136,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 	          {chipsNumbers.map((value, index) => {
 		          return (
 			          <ButtonChip
+				          key={index}
 				          setSelectedChip={setSelectedChip}
 				          selectedChip={selectedChip}
 				          setMoney={props.setMoney}
@@ -231,7 +239,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 					<div className={style.bottom}>
 						<button
 							onClick={() => {
-								console.log(props.bets)
+								console.table(props.bets)
 								props.rotateRoulette()
 							}}
 							className={style.bottomButton}>
@@ -254,7 +262,28 @@ const Controller: FC<ControllerProps> = (props ) => {
 							Информация
 						</button>
 						<div className={style.history}>
-
+							{props.historySpins.length > 0 &&
+								<p className={style.historyHead}>
+									История:
+								</p>
+							}
+							{props.historySpins.map((value, index) => {
+								if ((value >= 1 && value <= 10) || (value >= 19 && value <= 28)) {
+									if (value % 2 === 0)
+										return <div key={index} className={style.historyBlockRed}>{value}</div>
+									else
+										return <div key={index} className={style.historyBlockBlack}>{value}</div>
+								}
+								if ((value >= 11 && value <= 18) || (value >= 29 && value <= 36)) {
+									if (value % 2 === 0)
+										return <div key={index} className={style.historyBlockBlack}>{value}</div>
+									else
+										return <div key={index} className={style.historyBlockRed}>{value}</div>
+								}
+								else {
+									return <div key={index} className={style.historyBlockGreen}>{value}</div>
+								}
+							})}
 						</div>
 					</div>
 					<AnimatePresence>
@@ -278,14 +307,16 @@ const Controller: FC<ControllerProps> = (props ) => {
 											Коэффициент выплат:
 										</h2>
 										<ul className={style.infoList}>
-											<li>Красное/чёрное, чётное/нечётное, 1-18/19-36: ×1</li>
-											<li>Дюжина, колонна (ряд): ×2</li>
-											<li>Число: ×35</li>
+											<li>Красное/чёрное, чётное/нечётное, 1-18/19-36: ×2</li>
+											<li>Колонна (ряд): ×3</li>
+											<li>Число: ×36</li>
 										</ul>
 									</div>
 									<div className={style.infoRightPart}>
 										<p>
                       В этой рулетке отключены ставки на 2, 4 и 6 номеров, но также отключены всякие ограничения на сумму ставки.
+											<br />
+											<b>Не является азартной игрой.</b>
 										</p>
 									</div>
 								</div>

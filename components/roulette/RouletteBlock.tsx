@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import style from "../../styles/roulette.module.css";
 import {AnimatePresence, motion} from "framer-motion";
 import {cubicBezier} from "popmotion";
@@ -44,6 +44,8 @@ const Card: FC<{ num: number }> = ({num}) => {
 }
 
 const RouletteBlock: FC<RouletteBlockProps> = (props) => {
+	const [popupIsVisible, handlePopupIsVisible] = useState<boolean>(false)
+	const [totalWin, setTotalWin] = useState<number>(0)
 
 	const checkWin: Function = (num: number) => {
 		let totalWin = 0
@@ -66,10 +68,13 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 		}
 
 		// passe / impair
-		const checkWinPainImpair: Function = () => {
-			if (num % 2) {
+		const checkWinPairImpair: Function = () => {
+			if (!(num)) {
+				return
+			}
+			if (!(num % 2)) {
 				totalWin += props.bets[44].mass * props.bets[44].bet
-			} if (!(num % 2)) {
+			} if (num % 2) {
 				totalWin += props.bets[38].mass * props.bets[38].bet
 			}
 		}
@@ -87,13 +92,13 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 
 		// manque / passe
 		const checkManquePasse: Function = () => {
-			num <= 18 ?
+			(num <= 18) ?? (num > 0) ?
 				totalWin += props.bets[37].mass * props.bets[37].bet :
 				totalWin += props.bets[43].mass * props.bets[43].bet
 		}
 
 		checkWinBlackRed()
-		checkWinPainImpair()
+		checkWinPairImpair()
 		checkManquePasse()
 		checkWinLine()
 
@@ -110,11 +115,35 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 		props.setBets(copyBets)
 	}
 
+	const addPopup: Function = (win: number) => {
+		let time = 750
+		if (win) {
+			time = 2000
+			handlePopupIsVisible(true)
+			setTotalWin(win)
+		}
+		setTimeout(() => {
+			handlePopupIsVisible(false)
+			props.setBlockSelected(0)
+		}, time)
+	}
+
 	return (
 		<div
 			attribute={(props.blockSelected === 1).toString()}
 			className={style.rouletteBlock}>
 			<div className={style.roulette}>
+				<AnimatePresence>
+					{popupIsVisible && props.blockSelected === 1 &&
+            <motion.div
+              initial={{translateY: '-10rem', opacity: 0}}
+              animate={{translateY: '0rem', opacity: 1}}
+              exit={{translateY: '-10rem', opacity: 0}}
+              className={style.roulettePopup}>
+              Ты выиграл! {totalWin}$
+            </motion.div>
+					}
+				</AnimatePresence>
 				<button
 					attribute={(props.blockSelected === 1).toString()}
 					onClick={() => {
@@ -136,13 +165,11 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 								onAnimationComplete={() => {
 									const lastNumber = props.spinArray[props.spinArray.length - 1]
 									props.handleSpinIsEnd(true)
+									const win: number = checkWin(lastNumber)
 
-									const win = checkWin(lastNumber)
+									addPopup(win)
 									removeBets()
-									console.log(win)
 									props.setMoney(props.money + win)
-
-
 								}}
 								initial={{translateY: '0%'}}
 								animate={props.spinArray.length !== 1 ? {translateY: `-${props.spinArray.length - 1}00%`} : false}
@@ -151,9 +178,9 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 									type: cubicBezier(.35, .35, .2, .7)
 							}}
 								className={style.rouletteSlider}>
-								{props.spinArray.map(value => {
+								{props.spinArray.map((value, index) => {
 									return (
-										<Card num={value}/>
+										<Card key={index} num={value}/>
 									)
 								})}
 							</motion.div>

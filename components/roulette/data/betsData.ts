@@ -3,11 +3,11 @@ const betsData: {mass: number, bet: number}[] = []
 for (let i = 0; i < 46; i++) {
 	let mass = 1
 	if (i <= 36) {
-		mass = 35
+		mass = 36
 	} else if (i <= 39) {
 		mass = 2
 	} else if (i <= 42) {
-		mass = 4
+		mass = 3
 	} else {
 		mass = 2
 	}
