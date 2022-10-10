@@ -85,7 +85,7 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 				totalWin += props.bets[40].mass * props.bets[40].bet
 			} if (num % 3 === 2) {
 				totalWin += props.bets[41].mass * props.bets[41].bet
-			} if (num % 3 === 0) {
+			} if ((num % 3 === 0) && (num !== 0)) {
 				totalWin += props.bets[42].mass * props.bets[42].bet
 			}
 		}
