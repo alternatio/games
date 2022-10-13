@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import style from '../../styles/roulette.module.css'
+import style from '/styles/roulette.module.css'
 import {useState} from "react";
 import MainContainer from "../layouts/MainContainer";
 import betsData from "../../components/roulette/data/betsData";

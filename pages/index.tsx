@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import style from '../styles/Home.module.css'
+import style from '/styles/Home.module.css'
 
 import data, { valuesOfGames } from '../data/Home.data'
 import Link from "next/link";
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
             <div className={style.mainTopID}>id</div>
             <div className={style.mainTopCell}>name</div>
             <div className={style.mainTopCell}>date</div>
-            <div className={style.mainTopCell}>tech's</div>
+            <div className={style.mainTopCell}>techs</div>
           </div>
           <div className={style.games}>
             {

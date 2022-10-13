@@ -1,5 +1,5 @@
 import React, {FC, useState} from "react";
-import style from "../../styles/roulette.module.css";
+import style from "/styles/roulette.module.css";
 import {AnimatePresence, motion} from "framer-motion";
 import {cubicBezier} from "popmotion";
 

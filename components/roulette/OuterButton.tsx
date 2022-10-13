@@ -1,6 +1,6 @@
 import React, {FC, ReactNode} from "react";
 import chipData from "./data/chipData";
-import style from "../../styles/roulette.module.css";
+import style from "/styles/roulette.module.css";
 import {AnimatePresence, motion} from "framer-motion";
 
 interface outerButtonProps {

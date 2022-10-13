@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import style from "../../styles/roulette.module.css";
+import style from "/styles/roulette.module.css";
 import chipData from "./data/chipData";
 import {AnimatePresence, motion} from "framer-motion";
 

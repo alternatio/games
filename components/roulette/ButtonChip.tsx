@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import {motion} from "framer-motion";
-import style from "../../styles/roulette.module.css";
+import style from "/styles/roulette.module.css";
 import chipsNumbers from './data/chipData'
 
 interface ButtonChipProps {
