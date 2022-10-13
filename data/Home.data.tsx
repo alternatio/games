@@ -1,8 +1,3 @@
-interface valuesOfGames {
-	name: string
-	date: string
-	techs: string
-}
 
 const homeData: valuesOfGames[] = [
 	// {
@@ -17,4 +12,9 @@ const homeData: valuesOfGames[] = [
 	}
 ]
 
+export interface valuesOfGames {
+	name: string
+	date: string
+	techs: string
+}
 export default homeData

@@ -29,9 +29,6 @@
   width: 5rem;
   transition: .5s cubic-bezier(.35, .35, 0, .7);
 }
-.rouletteBlock[attribute='true'] {
-  width: 100%;
-}
 
 .roulette {
   background: #fff;
@@ -93,9 +90,6 @@
   align-items: center;
   justify-content: center;
   transition: .5s cubic-bezier(.35, .35, 0, .7);
-}
-.controller[attribute='true'] {
-  width: 100%;
 }
 
 .head {

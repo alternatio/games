@@ -103,16 +103,20 @@ const Controller: FC<ControllerProps> = (props ) => {
 	}
 
 	return (
-		<div
-			attribute={(props.blockSelected === 0).toString()}
+		<motion.div
+			initial={{width: '100%'}}
+			animate={props.blockSelected === 0 ?
+				{width: '100%'} :
+				{width: '5rem'}}
 			className={style.controller}>
 			<AnimatePresence>
 				{props.spinIsEnd &&
 					<motion.button
 						initial={{opacity: 0}}
-						animate={{opacity: 1}}
+            animate={props.blockSelected === 0 ?
+							{opacity: 0, pointerEvents: 'none'} :
+							{opacity: 1, pointerEvents: 'auto'}}
 						exit={{opacity: 0}}
-						attribute={(props.blockSelected === 0).toString()}
 						onClick={() => {
 							props.setBlockSelected(0)
 						}}
@@ -323,7 +327,7 @@ const Controller: FC<ControllerProps> = (props ) => {
 					</AnimatePresence>
 				</motion.div>}
 			</AnimatePresence>
-		</div>
+		</motion.div>
 	)
 }
 

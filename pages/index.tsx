@@ -1,8 +1,38 @@
 import type { NextPage } from 'next'
 import style from '../styles/Home.module.css'
 
-import data from '../data/Home.data'
+import data, { valuesOfGames } from '../data/Home.data'
 import Link from "next/link";
+import {FC} from "react";
+
+interface GameProps {
+  index: number
+  value: valuesOfGames
+}
+
+const Game: FC<GameProps> = ({index, value}) => {
+  return (
+    <div className={style.game}>
+      <div className={style.gameID}>
+        {index + 1}
+      </div>
+      <div className={style.gameCell}>
+        {value.name}
+      </div>
+      <div className={style.gameCell}>
+        {value.date}
+      </div>
+      <div className={style.gameCell}>
+        {value.techs}
+      </div>
+      <Link href={`/games/${value.name}`}>
+        <a className={style.gameButton}>
+          play
+        </a>
+      </Link>
+    </div>
+  )
+}
 
 const Home: NextPage = () => {
   return (
@@ -22,25 +52,10 @@ const Home: NextPage = () => {
             {
               data.map((value, index) => {
                 return (
-                  <div className={style.game}>
-                    <div className={style.gameID}>
-                      {index + 1}
-                    </div>
-                    <div className={style.gameCell}>
-                      {value.name}
-                    </div>
-                    <div className={style.gameCell}>
-                      {value.date}
-                    </div>
-                    <div className={style.gameCell}>
-                      {value.techs}
-                    </div>
-                    <Link href={`/games/${value.name}`}>
-                      <a className={style.gameButton}>
-                        play
-                      </a>
-                    </Link>
-                  </div>
+                  <Game
+                    key={index}
+                    index={index}
+                    value={value}/>
                 )
               })
             }

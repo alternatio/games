@@ -129,8 +129,10 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 	}
 
 	return (
-		<div
-			attribute={(props.blockSelected === 1).toString()}
+		<motion.div
+			animate={props.blockSelected === 1 ?
+				{width: '100%'} :
+				{width: '5rem'}}
 			className={style.rouletteBlock}>
 			<div className={style.roulette}>
 				<AnimatePresence>
@@ -144,15 +146,17 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
             </motion.div>
 					}
 				</AnimatePresence>
-				<button
-					attribute={(props.blockSelected === 1).toString()}
+				<motion.button
+					animate={props.blockSelected === 1 ?
+						{opacity: 0, pointerEvents: 'none'} :
+						{opacity: 1, pointerEvents: 'auto'}}
 					onClick={() => {
 						props.setBlockSelected(1)
 						props.setSpinArray([props.spinArray[props.spinArray.length - 1]])
 					}}
 					className={style.head}>
 					roulette
-				</button>
+				</motion.button>
 				<AnimatePresence>
 					{props.blockSelected === 1 &&
 						<motion.div
@@ -187,7 +191,7 @@ const RouletteBlock: FC<RouletteBlockProps> = (props) => {
 						</motion.div>}
 				</AnimatePresence>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 
