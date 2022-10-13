@@ -3,6 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: #eee;
   font-family: 'AtypDisplay', sans-serif;
@@ -15,7 +16,7 @@
 }
 .wrapper {
   width: min(100%, 80rem);
-  height: 100%;
+  height: min(100%, 50rem);
   display: flex;
   padding: .5rem .5rem 2.25rem;
 }
