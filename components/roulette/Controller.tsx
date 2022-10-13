@@ -1,4 +1,4 @@
-import React, {FC, ReactNode, useState} from "react";
+import React, {FC, useState} from "react";
 import style from "../../styles/roulette.module.css";
 import {AnimatePresence, motion} from "framer-motion";
 import chipsNumbers from "./data/chipData";
@@ -28,7 +28,6 @@ interface ControllerProps {
 const Controller: FC<ControllerProps> = (props ) => {
 	const [selectedChip, setSelectedChip] = useState<number>(0)
 	const [infoVisible, setInfoVisible] = useState<boolean>(false)
-	const [code, setCode] = useState<string[]>([])
 
 	const addBet: Function = (num: number, bet: number) => {
 		if (props.money >= chipsNumbers[selectedChip]) {
@@ -139,7 +138,6 @@ const Controller: FC<ControllerProps> = (props ) => {
 				          key={index}
 				          setSelectedChip={setSelectedChip}
 				          selectedChip={selectedChip}
-				          setMoney={props.setMoney}
 				          money={props.money}
 				          index={index}
 				          value={value}/>

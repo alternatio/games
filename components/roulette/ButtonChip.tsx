@@ -5,7 +5,6 @@ import chipsNumbers from './data/chipData'
 
 interface ButtonChipProps {
 	value: number
-	setMoney: Function
 	money: number
 	setSelectedChip: Function
 	selectedChip: number
