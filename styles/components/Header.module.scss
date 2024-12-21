@@ -1,0 +1,37 @@
+@import "../../styles/global/variables";
+
+.header {
+  @extend %header;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  border-bottom: $black solid 0.05rem;
+  z-index: 10;
+  background: $white;
+}
+
+.logoPart {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.rightPart {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.themeButton {
+  cursor: pointer;
+}
+
+.accent {
+  @extend %accent;
+}
+.link {
+  @extend %link;
+}

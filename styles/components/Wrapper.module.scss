@@ -1,0 +1,17 @@
+@import "../../styles/global/variables";
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  background: $white;
+}
+
+.content {
+  @extend %column-center;
+  width: min(100%, 66rem);
+  min-height: 100%;
+  gap: 1rem;
+}

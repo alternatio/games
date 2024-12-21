@@ -1,0 +1,141 @@
+@import "../../styles/global/variables";
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  font-size: 3rem;
+  font-weight: 700;
+
+  width: min(90%, 20rem);
+  border-radius: 0.5rem;
+  background: $white;
+  color: $black;
+  box-shadow: 0 0.25rem 0.5rem rgba($black, 0.1);
+  border: $black solid 0.05rem;
+}
+
+.buttonStart {
+  @extend %button;
+  width: 40%;
+  overflow: hidden;
+  padding: 0.75rem 0;
+}
+
+.main {
+  width: min(90%, 20rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.money {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background: #e8e8e8;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  //width: 50%;
+}
+
+.inputBlock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 50%;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: $black solid 0.05rem;
+  cursor: text;
+  transition: 0.1s ease-in-out;
+}
+
+.input {
+  font-size: inherit;
+  box-shadow: 0 0 0 0 #ff1144;
+  transition: 0.2s ease-in-out;
+  &:disabled {
+    opacity: 0.5;
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+
+.inputWithHandler {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.handler {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  padding: 0.25rem;
+  background: #e8e8e8;
+  display: flex;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+.handlerCircle {
+  height: 1.5rem;
+  background: $black;
+  aspect-ratio: 1/1;
+  border-radius: 5rem;
+  transform: translateX(0%);
+}
+
+.history {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.historyItem {
+  padding: 0.5rem;
+  background: #e8e8e8;
+  border-radius: 0.5rem;
+  max-width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.popup {
+  position: absolute;
+  top: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background: $white;
+  box-shadow: 0 0.5rem 1rem rgba($black, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  transform: translateY(0);
+  z-index: 1000;
+}

@@ -1,0 +1,49 @@
+$black: #000;
+$white: #FFF;
+$orange: #FF8800;
+$red: #FF1144;
+$blue: #2233FF;
+
+%column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+%header {
+  width: min(100%, 66rem);
+}
+
+%accent {
+  color: $orange;
+}
+
+%link {
+  font-size: .8rem;
+  font-weight: 700;
+  transition: .15s ease-in;
+  &:hover {
+    color: $orange;
+  }
+}
+
+%button {
+  padding: .75rem 1.5rem;
+  background: $black;
+  color: $white;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: .5rem;
+  box-shadow: 0 0 $black;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  &:hover {
+    background: $orange;
+    color: $black;
+    box-shadow: 0 .5rem $black;
+  }
+  &:active {
+    transform: translateY(.5rem);
+    box-shadow: 0 0 $black;
+  }
+}

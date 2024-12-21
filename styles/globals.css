@@ -2,10 +2,11 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: NeueMachina, sans-serif;
 }
 
 ::-webkit-scrollbar {
-  width: .75rem;
+  width: 0.75rem;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -28,6 +29,16 @@ button {
   outline: none;
   border: none;
   background: transparent;
+}
+
+a,
+button,
+input {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  background: none;
 }
 
 #next {
